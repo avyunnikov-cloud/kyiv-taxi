@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Робота водієм таксі в Києві — Uklon, Bolt, Uber | Прототип</title>
+<meta name="description" content="Легальна робота в таксі Києва. Підключення до Uklon, Bolt, Uber за 1 день. Виплати щодня, оформлення документів під ключ, підтримка рідною мовою.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Rental<span>Park</span></a>
+    <nav class="menu">
+      <div class="has-dropdown">
+        <button type="button" class="drop-toggle" onclick="toggleDrop(this)">Робота <span class="chev">▾</span></button>
+        <div class="dropdown">
+          <div class="dd-head">Водій</div>
+          <a class="dd-uber" href="uber.html"><span class="dd-dot"></span>Uber</a>
+          <a class="dd-bolt" href="bolt.html"><span class="dd-dot"></span>Bolt</a>
+        </div>
+      </div>
+      <a href="orenda.html">Оренда авто</a>
+      <a href="blog.html">Блог</a>
+      <a href="#about">Про нас</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <div class="nav-right">
+      <button class="burger" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- S1 HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1><span class="accent">Rental Park</span> — ваш надійний партнер для роботи із Bolt та Uber</h1>
+      <p class="lead">Допомагаємо заробляти в таксі з 2016 року. Перевірений партнер, власний автопарк та СТО.</p>
+      <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Почати роботу</a>
+    </div>
+    <div class="hero-cards">
+      <a class="hcard hc-blue" href="#apply" onclick="openModal('blue');return false;">
+        <div class="hc-arrow">↗</div>
+        <div class="hc-label">Вакансія</div>
+        <div class="hc-title">Водій таксі</div>
+        <div class="hc-foot"><span>Середня зарплата</span><b>від 40 000 грн</b></div>
+      </a>
+      <a class="hcard hc-green" href="#apply" onclick="openModal('green');return false;">
+        <div class="hc-arrow">↗</div>
+        <div class="hc-label">Вакансія</div>
+        <div class="hc-title">Підключення зі своїм авто</div>
+        <div class="hc-foot"><span>Середня зарплата</span><b>від 60 000 грн</b></div>
+      </a>
+      <a class="hcard hc-yellow" id="rent" href="#apply" onclick="openModal();return false;">
+        <img class="hc-car" src="car-rental.png" alt="Автомобіль для оренди" onerror="this.style.display='none'">
+        <div class="hc-arrow">↗</div>
+        <div class="hc-label">З великим вибором</div>
+        <div class="hc-title">Оренда авто</div>
+        <div class="hc-foot"><span>Оренда</span><b>від 3 500 грн</b></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- S1d PLATFORM TABS -->
+<section id="platform-choice">
+  <div class="wrap">
+    <div class="ptabs">
+      <button class="ptab is-active" data-tab="uber" onclick="showPlatform('uber')">Uber</button>
+      <button class="ptab" data-tab="bolt" onclick="showPlatform('bolt')">Bolt</button>
+    </div>
+    <div class="ptab-mobile">
+      <button class="pnav" onclick="platformNav(-1)" aria-label="Попередня платформа">‹</button>
+      <span class="pcur">Uber</span>
+      <button class="pnav" onclick="platformNav(1)" aria-label="Наступна платформа">›</button>
+    </div>
+
+    <!-- UBER -->
+    <div class="pslide pslide-uber is-active" data-panel="uber">
+      <span class="plogo">Uber</span>
+      <div class="ptext">
+        <h2>Uber Driver</h2>
+        <p>Працюйте з найбільшою у світі платформою таксі. Отримайте доступ до великої кількості замовлень та стабільного доходу — на чорному Peugeot 308 SW із брендуванням Uber.</p>
+        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+      </div>
+      <div class="pcar">
+        <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
+          <path class="b" d="M30,196 L30,172 C30,164 35,159 52,156 L120,150 C150,116 176,100 216,100 L330,100 C366,102 384,120 404,150 L520,154 C544,156 556,164 556,180 L556,196 Z"/>
+          <path class="w" d="M150,146 C170,120 190,110 216,110 L262,110 L262,146 Z"/>
+          <path class="w" d="M276,110 L322,110 C352,112 370,126 388,146 L276,146 Z"/>
+          <circle class="t" cx="158" cy="196" r="40"/><circle class="h" cx="158" cy="196" r="15"/>
+          <circle class="t" cx="470" cy="196" r="40"/><circle class="h" cx="470" cy="196" r="15"/>
+        </svg>
+        <img class="pcar-img" src="uber-car.jpg" alt="Peugeot 308 SW із брендуванням Uber" loading="lazy" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- BOLT -->
+    <div class="pslide pslide-bolt" data-panel="bolt">
+      <span class="plogo">Bolt</span>
+      <div class="ptext">
+        <h2>Bolt Taxi</h2>
+        <p>Приєднуйтесь до одного з найпопулярніших сервісів таксі в Європі. Легкий старт і зручні умови для водіїв — на білому Peugeot 308 SW із брендуванням Bolt.</p>
+        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+      </div>
+      <div class="pcar">
+        <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
+          <path class="b" d="M30,196 L30,172 C30,164 35,159 52,156 L120,150 C150,116 176,100 216,100 L330,100 C366,102 384,120 404,150 L520,154 C544,156 556,164 556,180 L556,196 Z"/>
+          <path class="w" d="M150,146 C170,120 190,110 216,110 L262,110 L262,146 Z"/>
+          <path class="w" d="M276,110 L322,110 C352,112 370,126 388,146 L276,146 Z"/>
+          <circle class="t" cx="158" cy="196" r="40"/><circle class="h" cx="158" cy="196" r="15"/>
+          <circle class="t" cx="470" cy="196" r="40"/><circle class="h" cx="470" cy="196" r="15"/>
+        </svg>
+        <img class="pcar-img" src="bolt-car.jpg" alt="Peugeot 308 SW із брендуванням Bolt" loading="lazy" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S1d2 OUR FLEET -->
+<section id="fleet">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:44px">
+      <h2>Наш автопарк</h2>
+      <p class="lead center">Сучасні авто, готові до роботи в таксі — оберіть модель, що підходить саме вам.</p>
+    </div>
+    <div class="cars fleet-cars">
+
+      <!-- CARD -->
+      <article class="car-card">
+        <div class="car-photo">
+          <span class="car-badge">✓</span>
+          <img src="renault-megane.png" alt="Renault Megane" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="car-brand">Renault</div>
+        <div class="car-name"><h3>Megane</h3></div>
+        <p class="car-desc">Практичний та економічний універсал — ідеальний для щоденної роботи в місті з мінімальними витратами на пальне.</p>
+        <div class="car-specs">
+          <div><div class="lbl">Коробка:</div><div class="val">АКПП / МКПП</div></div>
+          <div><div class="lbl">Витрата палива:</div><div class="val">6 л / 100 км</div></div>
+        </div>
+        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+      </article>
+
+      <!-- CARD -->
+      <article class="car-card">
+        <div class="car-photo">
+          <span class="car-badge">✓</span>
+          <img src="peugeot-308.png" alt="Peugeot 308 SW" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="car-brand">Peugeot</div>
+        <div class="car-name"><h3>308 SW</h3></div>
+        <p class="car-desc">Просторий універсал із брендуванням Uber та Bolt — комфорт для водія й пасажирів та стабільний потік замовлень.</p>
+        <div class="car-specs">
+          <div><div class="lbl">Коробка:</div><div class="val">АКПП / МКПП</div></div>
+          <div><div class="lbl">Витрата палива:</div><div class="val">6 л / 100 км</div></div>
+        </div>
+        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+      </article>
+
+      <!-- CARD -->
+      <article class="car-card">
+        <div class="car-photo">
+          <span class="car-badge">✓</span>
+          <img src="mercedes-e.png" alt="Mercedes E-class" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="car-brand">Mercedes-Benz</div>
+        <div class="car-name"><h3>E-class</h3></div>
+        <p class="car-desc">Преміальний автомобіль бізнес-класу для комфорт-сегмента — вищий чек за поїздку та солідний вигляд.</p>
+        <div class="car-specs">
+          <div><div class="lbl">Коробка:</div><div class="val">АКПП</div></div>
+          <div><div class="lbl">Витрата палива:</div><div class="val">7,5 л / 100 км</div></div>
+        </div>
+        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- S1e WORK WITH US -->
+<section id="work">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <h2>Робота із нами</h2>
+      <p class="lead center">Оберіть формат співпраці, який підходить саме вам.</p>
+    </div>
+    <div class="grid job-grid">
+      <div class="job-card">
+        <h3>Водій таксі на авто компанії</h3>
+        <p>Не маєте власного авто? Ми надамо сучасний автомобіль компанії, готовий до роботи. Підключимо вас до Uber і Bolt та допоможемо оформити всі документи для легальної роботи.</p>
+        <ul class="job-cond">
+          <li>Надаємо <strong>авто компанії</strong> — від 2016 року, переважно АКПП, дизель</li>
+          <li>Відсутність судимостей і порушень ПДР за керування у стані алкогольного чи наркотичного сп'яніння</li>
+          <li>Стабільний дохід зі щотижневими виплатами</li>
+        </ul>
+        <div class="job-foot">
+          <div class="job-sal"><span>Середня зарплата</span><b>від 60 000 грн</b></div>
+          <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <h3>Підключення зі своїм авто</h3>
+        <p>Залишайтеся за кермом власного авто, а всі переваги партнерства беріть на себе. Ви самі вирішуєте, як і коли вам працювати.</p>
+        <ul class="job-cond">
+          <li>Низька комісія</li>
+          <li>Щотижневі виплати</li>
+          <li>Знижки на оренду авто</li>
+          <li>Гнучкий графік — працюйте тоді, коли зручно</li>
+        </ul>
+        <div class="job-foot">
+          <div class="job-sal"><span>Середня зарплата</span><b>від 60 000 грн</b></div>
+          <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="rent-banner">
+      <h3>Оренда авто</h3>
+      <p>Немає власного авто? Ми пропонуємо великий вибір автомобілів для оренди під таксі на вигідних умовах. Оберіть відповідну модель і починайте заробляти разом із Rental Park.</p>
+      <a class="btn-start" href="orenda.html"><span class="bs-ic">↘</span>Детальніше</a>
+      <img class="rb-car" src="car-rental.png" alt="Автомобіль для оренди — Peugeot 308 SW" loading="lazy" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- S1b WHY / ABOUT -->
+<section id="about">
+  <div class="wrap why-grid">
+    <div class="why-left">
+      <h2>Чому водії обирають <span class="accent">Rental Park</span></h2>
+      <div class="proof">
+        <div class="avatars">
+          <span class="avatar"><img src="face1.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
+          <span class="avatar"><img src="face2.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
+          <span class="avatar"><img src="face3.jpg" alt="" loading="lazy" onerror="this.remove()"></span>
+        </div>
+        <div class="proof-pill">
+          <b>7000+</b>
+          <span>водіїв працюють з нами<br>з 2016 року</span>
+        </div>
+      </div>
+    </div>
+    <div class="why-right">
+      <p><strong>Rental Park</strong> — надійний партнер для водіїв, які хочуть стабільно заробляти в таксі. <strong>З 2016 року</strong> ми допомагаємо підключатися до провідних агрегаторів <strong>Uber та Bolt</strong>, оформлюємо всі необхідні документи й швидко виводимо на лінію. Накопичений досвід дозволяє новачкам стартувати вже за 1 день, а досвідченим водіям — заробляти більше.</p>
+      <p>У нашому розпорядженні <strong>власний автопарк — понад 50 автомобілів</strong> усіх категорій: <strong>Standart, Business та Black/Premium</strong>. Ви можете орендувати авто під таксі або підключити власне. Прозорі умови співпраці, щоденні виплати, власне СТО та підтримка на кожному етапі роблять роботу з Rental Park простою, вигідною та безпечною.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S7 REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:34px"><h2>Водії про співпрацю з нами</h2><p class="lead center">Реальні відгуки — рейтинг на Google Maps.</p></div>
+    <div class="grid rev">
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Зробили все швидко й якісно, отримав договір і вже за кілька хвилин почав працювати одразу по всіх додатках.</p><div class="who">Михайло</div></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Приємні й професійні співробітники. Сервіс на рівні, виплати завжди вчасно. Рекомендую!</p><div class="who">Ігор</div></div>
+      <div class="rev-card"><div class="stars">★★★★★</div><p>Найкращий партнер, що я знаю. Стабільні виплати, завжди допоможуть з документами.</p><div class="who">Олександр</div></div>
+    </div>
+    <div class="center" style="margin-top:26px"><a class="btn btn-ghost" href="#" onclick="return false;">Переглянути всі відгуки на Google</a></div>
+  </div>
+</section>
+
+<!-- S10 FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:34px"><h2>Часті запитання</h2></div>
+    <div class="faq">
+      <div class="q"><button onclick="tq(this)">Що потрібно, щоб стати водієм таксі? <span class="chev">▾</span></button><div class="a"><p>Посвідчення водія, авто (своє або орендоване), пакет документів. Решту оформлення беремо на себе — консультуємо на кожному кроці.</p></div></div>
+      <div class="q"><button onclick="tq(this)">Які документи ви оформлюєте? <span class="chev">▾</span></button><div class="a"><p>ФОП, договір, випис із ліцензії, ідентифікатор водія. Допомагаємо зібрати все для легальної роботи.</p></div></div>
+      <div class="q"><button onclick="tq(this)">Як і коли відбуваються виплати? <span class="chev">▾</span></button><div class="a"><p>Щодня, щотижня або готівкою в офісі — обираєте зручний формат.</p></div></div>
+      <div class="q"><button onclick="tq(this)">Чи можна працювати без свого авто? <span class="chev">▾</span></button><div class="a"><p>Так. Підберемо авто під таксі з партнерських автопарків на вигідних умовах.</p></div></div>
+      <div class="q"><button onclick="tq(this)">Чи їздить таксі в комендантську годину? <span class="chev">▾</span></button><div class="a"><p>Uklon і Bolt працюють у Києві цілодобово за погодженими правилами. Розповімо деталі на консультації.</p></div></div>
+      <div class="q"><button onclick="tq(this)">Скільки можна заробити? <span class="chev">▾</span></button><div class="a"><p>Залежить від графіка й платформи. Активні водії заробляють від 25 000 ₴/міс.* Порахуємо ваш дохід персонально.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:12px">Rental<span>Park</span></div>
+        <p style="color:#94A3B8">Платформа для працевлаштування та оформлення документів для водіїв таксі в Києві.</p>
+        <div class="socials"><a href="#">✈</a><a href="#">📞</a><a href="#">▶</a><a href="#">📷</a></div>
+      </div>
+      <div><h5>Робота</h5><div class="foot-links"><a href="#work">Водій таксі</a><a href="#">Uklon</a><a href="bolt.html">Bolt</a><a href="uber.html">Uber</a><a href="orenda.html">Оренда авто</a></div></div>
+      <div><h5>Компанія</h5><div class="foot-links"><a href="#about">Про нас</a><a href="#reviews">Відгуки</a><a href="blog.html">Блог</a><a href="#contacts">Контакти</a><a href="#">Політика конфіденційності</a></div></div>
+      <div><h5>Контакти</h5><div class="foot-links"><a href="tel:+380000000000">+380 (00) 000-00-00</a><a href="mailto:info@example.com">info@example.com</a><a href="#">Telegram</a><a href="#">Viber</a></div></div>
+    </div>
+    <div class="copyright">© 2026 RentalPark. Прототип для тестування інтерфейсу. Цифри позначені * — потребують заповнення.</div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<button class="btn btn-primary sticky-cta mobile-bar" onclick="openModal()">💬 Залишити заявку</button>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="join-box">
+    <button class="join-close" onclick="closeModal()" aria-label="Закрити">×</button>
+    <div class="join-content">
+      <h2>Приєднуйся до<br>нашої команди!</h2>
+      <p>Заповніть форму нижче та наші менеджери зв'яжуться із вами.</p>
+      <form onsubmit="return submitForm(event,'f2')">
+        <div class="join-fields">
+          <label class="join-input">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#111" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v1h18v-1c0-3.5-4-6-9-6Z"/></svg>
+            <input required type="text" placeholder="Ваше ім'я">
+          </label>
+          <label class="join-input">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="#111" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1l-2.1 2.2Z"/></svg>
+            <input required type="tel" placeholder="+380 000 000-00">
+          </label>
+        </div>
+        <div class="join-submit-row">
+          <button class="join-btn" type="submit"><span class="jb-ic">↘</span>Залишити заявку</button>
+          <p class="join-consent">Натискаючи кнопку «Залишити заявку», ви автоматично погоджуєтесь із <a href="#">політикою конфіденційності</a> та обробкою персональних даних.</p>
+        </div>
+      </form>
+      <div class="ok-msg" id="ok-f2">✓ Дякуємо! Менеджер зв'яжеться найближчим часом.</div>
+    </div>
+    <img class="join-photo" src="join.png" alt="" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
