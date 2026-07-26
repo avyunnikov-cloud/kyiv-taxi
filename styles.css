@@ -103,6 +103,15 @@
   .hcard .hc-label,.hcard .hc-title,.hcard .hc-foot{position:relative;z-index:2}
   .hcard .hc-arrow{z-index:3}
   @media(max-width:900px){.hc-car{width:58%;bottom:-4%}}
+  @media(max-width:560px){
+    .hero-cards{grid-template-columns:1fr;gap:14px}
+    .hcard{min-height:auto;padding:30px 26px;text-align:center}
+    .hc-arrow{top:20px;right:20px}
+    .hc-title{max-width:none;font-size:26px;overflow-wrap:break-word}
+    .hc-yellow{text-align:left}
+    .hc-yellow .hc-title{max-width:70%}
+    .hc-car{width:52%;bottom:-2%}
+  }
 
   /* WHY / ABOUT */
   .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:stretch}
