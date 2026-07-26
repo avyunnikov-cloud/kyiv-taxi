@@ -26,3 +26,4 @@
   function submitForm(e,id){e.preventDefault();e.target.style.display='none';document.getElementById('ok-'+id).style.display='block';return false}
   function toggleFilter(btn){btn.closest('.filter-group').classList.toggle('open')}
   function setSort(el){document.querySelectorAll('.sort-opt').forEach(function(o){o.classList.remove('is-active')});el.classList.add('is-active')}
+  function toggleReq(btn){btn.closest('.car-card').classList.toggle('req-open')}

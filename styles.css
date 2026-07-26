@@ -523,6 +523,20 @@
   color:#1a1400;font-weight:800;font-size:16px;padding:8px 8px;border-radius:999px;cursor:pointer;
   border:0;font-family:inherit;transition:.15s}
 .btn-book:hover{transform:translateY(-1px)}
+.btn-req{margin:8px 4px 4px;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:transparent;color:#1a1400;font-weight:800;font-size:15px;padding:13px 8px;
+  border-radius:999px;cursor:pointer;border:1.5px solid var(--accent);font-family:inherit;transition:.15s}
+.btn-req:hover{background:rgba(255,196,0,.14)}
+.car-req{display:none;flex-direction:column;flex:1;padding:8px 10px 10px;color:#1a1400}
+.car-req h4{font-size:19px;font-weight:800;margin-bottom:16px}
+.car-req ul{list-style:disc;padding-left:22px;display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.car-req li{font-size:15px;font-weight:600;line-height:1.35}
+.btn-close-req{margin-top:auto;background:#fff;color:#111;font-weight:800;font-size:16px;
+  padding:15px 8px;border-radius:999px;cursor:pointer;border:0;font-family:inherit;transition:.15s}
+.btn-close-req:hover{transform:translateY(-1px)}
+.car-card.req-open{background:var(--accent)}
+.car-card.req-open > :not(.car-req){display:none}
+.car-card.req-open .car-req{display:flex}
 
 @media(max-width:1024px){.cars{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:820px){.oh-grid{grid-template-columns:1fr}.catalog-body{grid-template-columns:1fr}
