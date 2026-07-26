@@ -38,7 +38,16 @@
   .menu a:hover{color:var(--primary)}
   .nav-right{margin-left:auto;display:flex;align-items:center;gap:16px}
   .phone{font-weight:800;white-space:nowrap}
+  .ua-slogan{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;
+    font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+    font-style:italic;font-weight:700;font-size:20px;letter-spacing:.01em;
+    color:#0057B7;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+  .ua-flag{width:27px;height:18px;flex:0 0 auto;border-radius:3px;
+    background:linear-gradient(#0057B7 0 50%,#FFD700 50% 100%);
+    box-shadow:0 1px 3px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06)}
   .burger{display:none;font-size:26px;background:none;border:0;cursor:pointer}
+  @media(max-width:560px){.ua-slogan{font-size:16px;gap:7px}.ua-flag{width:22px;height:15px}}
+  @media(max-width:380px){.ua-slogan .ua-flag{display:none}}
 
   /* HEADER DROPDOWN */
   .has-dropdown{position:relative}
