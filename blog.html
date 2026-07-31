@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Блог — корисні статті для водіїв таксі в Києві | RentalPark</title>
+<title>Блог корисні статті для водіїв таксі в Києві | RentalPark</title>
 <meta name="description" content="Блог RentalPark: як заробляти в таксі, оренда авто Київ, поради для водіїв таксі в Києві, порівняння Uber та Bolt, оформлення документів. Корисні статті та новини компанії.">
 <meta name="keywords" content="блог таксі, як заробляти в таксі, водій таксі Київ, оренда авто Київ, поради водіям, Uber, Bolt">
 <link rel="stylesheet" href="styles.css?v=5">
@@ -75,69 +75,8 @@
 <!-- ARTICLES -->
 <section id="articles">
   <div class="wrap">
-    <div class="grid blog-list">
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="peugeot-308.png" alt="Як заробляти в таксі" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Поради водіям</span>
-          <h3>Як заробляти в таксі</h3>
-          <p>Розбираємо, скільки реально заробляє водій таксі в Києві, як обрати платформу та графік і з чого почати новачку.</p>
-          <div class="post-foot"><span>24 липня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="renault-megane.png" alt="Оренда авто під таксі" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Оренда</span>
-          <h3>Оренда авто під таксі в Києві: з чого почати</h3>
-          <p>Умови оренди авто Київ під таксі, депозит, страхування та як обрати автомобіль під свій формат роботи.</p>
-          <div class="post-foot"><span>20 липня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="mercedes-e.png" alt="Uber чи Bolt" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Порівняння</span>
-          <h3>Uber чи Bolt: що обрати водієві в Києві</h3>
-          <p>Порівнюємо комісії, кількість замовлень і виплати двох платформ, щоб ви заробляли більше за кермом.</p>
-          <div class="post-foot"><span>15 липня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="car-rental.png" alt="Документи для роботи в таксі" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Документи</span>
-          <h3>Документи для роботи в таксі: ФОП та ліцензія</h3>
-          <p>Який пакет документів потрібен водієві таксі в Києві та як RentalPark допомагає оформити все за кілька днів.</p>
-          <div class="post-foot"><span>9 липня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="renault-megane.png" alt="Як збільшити дохід за кермом" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Поради водіям</span>
-          <h3>5 порад, як збільшити дохід за кермом</h3>
-          <p>Прості робочі поради: коли виходити на лінію, як тримати рейтинг і економити на пальному.</p>
-          <div class="post-foot"><span>3 липня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-      <article class="post-card">
-        <a class="post-photo" href="#" onclick="return false;"><img src="mercedes-e.png" alt="Оновлення автопарку RentalPark" loading="lazy" onerror="this.style.display='none'"></a>
-        <div class="post-body">
-          <span class="post-cat">Новини</span>
-          <h3>Оновлення автопарку RentalPark</h3>
-          <p>Поповнили автопарк новими авто з АКПП — більше вибору для оренди під таксі в Києві.</p>
-          <div class="post-foot"><span>28 червня 2026</span><a class="read" href="#" onclick="return false;">Читати →</a></div>
-        </div>
-      </article>
-
-    </div>
+    <!-- Новини рендеряться з posts.json через blog.js -->
+    <div class="grid blog-list" id="posts-list"></div>
   </div>
 </section>
 
@@ -190,5 +129,6 @@
 </div>
 
 <script src="app.js"></script>
+<script src="blog.js"></script>
 </body>
 </html>

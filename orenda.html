@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Оренда авто під таксі — Uklon, Uber, Bolt | RentalPark</title>
+<title>Оренда авто під таксі Uklon, Uber, Bolt | RentalPark</title>
 <meta name="description" content="Оренда авто під таксі для роботи в Uklon, Uber, Bolt. Власний автопарк, авто всіх категорій, вигідні умови та депозит. Обирайте авто та починайте заробляти.">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,35 @@
   .cars-msg-err{color:#b91c1c}
   .cars-msg-err b{color:#b91c1c}
   @media(max-width:560px){.cars-count{margin-left:0;flex-basis:100%}}
+
+  /* Кнопки hero: вибрати + здати авто */
+  .oh-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn-rentout{display:inline-flex;align-items:center;gap:14px;background:#fff;color:var(--ink);
+      border:1.5px solid var(--ink);font-family:inherit;font-weight:800;font-size:16px;
+      padding:14px 26px 14px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+  .btn-rentout .bs-ic{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--ink);
+      color:#fff;display:grid;place-items:center;font-size:16px}
+  .btn-rentout:hover{background:var(--ink);color:#fff}
+  .btn-rentout:hover .bs-ic{background:#fff;color:var(--ink)}
+
+  /* Поп-ап «Здати авто» */
+  #rentout-modal .rentout-box{position:relative;background:#fff;border-radius:22px;
+      padding:38px 34px 34px;max-width:440px;width:calc(100% - 40px);box-shadow:0 30px 70px rgba(15,23,42,.3)}
+  #rentout-modal h2{font-size:26px;letter-spacing:-.01em;margin-bottom:10px}
+  #rentout-modal p{color:var(--muted);font-size:16px;margin-bottom:24px}
+  .rentout-actions{display:flex;flex-direction:column;gap:14px}
+  .rentout-btn{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;
+      text-decoration:none;transition:.15s;border:1.5px solid transparent}
+  .rentout-btn svg{width:26px;height:26px;flex:0 0 26px}
+  .rentout-btn span{display:flex;flex-direction:column;line-height:1.25}
+  .rentout-btn b{font-size:17px}
+  .rentout-btn small{font-size:14px;opacity:.8}
+  .rentout-phone{background:var(--accent);color:#111}
+  .rentout-phone svg{fill:#111}
+  .rentout-phone:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,196,0,.4)}
+  .rentout-tg{background:#229ED9;color:#fff}
+  .rentout-tg svg{fill:#fff}
+  .rentout-tg:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(34,158,217,.4)}
 </style>
 </head>
 <body>
@@ -50,9 +79,12 @@
     <div class="oh-left">
       <h1>Оренда авто <span class="accent">під таксі</span></h1>
       <p>Оренда авто для роботи в Uklon, Uber, Bolt. Власний автопарк, авто всіх категорій та вигідні умови.</p>
-      <a class="btn-start" href="#catalog"><span class="bs-ic">↘</span>Вибрати авто під таксі</a>
+      <div class="oh-actions">
+        <a class="btn-start" href="#catalog"><span class="bs-ic">↘</span>Вибрати авто під таксі</a>
+        <button type="button" class="btn-rentout" onclick="openRentOut()"><span class="bs-ic">↗</span>Здати авто в оренду</button>
+      </div>
     </div>
-    <img class="oh-car" src="car-rental.png" alt="Оренда авто під таксі — Peugeot 308 SW" onerror="this.style.display='none'">
+    <img class="oh-car" src="car-rental.png" alt="Оренда авто під таксі Peugeot 308 SW" onerror="this.style.display='none'">
   </div>
 </section>
 
@@ -175,6 +207,25 @@
       <div class="ok-msg" id="ok-f2">✓ Дякуємо! Менеджер зв'яжеться найближчим часом.</div>
     </div>
     <img class="join-photo" src="join.png" alt="" onerror="this.style.display='none'">
+  </div>
+</div>
+
+<!-- RENT-OUT POPUP -->
+<div class="modal" id="rentout-modal">
+  <div class="rentout-box">
+    <button class="join-close" onclick="closeRentOut()" aria-label="Закрити">×</button>
+    <h2>Здати авто в оренду</h2>
+    <p>Хочете здати свій автомобіль в оренду під таксі? Зв'яжіться з нами зручним способом розповімо про умови та дохід.</p>
+    <div class="rentout-actions">
+      <a class="rentout-btn rentout-phone" href="tel:+380000000000">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1l-2.1 2.2Z"/></svg>
+        <span><b>Зателефонувати</b><small>+38 (000) 000-00-00</small></span>
+      </a>
+      <a class="rentout-btn rentout-tg" href="https://t.me/rentalpark" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 3.4 2.7 10.8c-1 .4-1 .9-.1 1.2l4.9 1.5 1.9 6c.2.6.4.7 1 .3l2.7-2 4.6 3.4c.9.5 1.5.2 1.7-.8l3.1-14.7c.2-1.1-.4-1.6-1.1-1.3ZM8.3 13.6 17 8.1c.4-.3.8-.1.4.2l-7 6.4-.3 3-1.8-4.1Z"/></svg>
+        <span><b>Telegram-канал</b><small>@rentalpark</small></span>
+      </a>
+    </div>
   </div>
 </div>
 

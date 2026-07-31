@@ -33,8 +33,24 @@
       if (arrow) cyclePhoto(arrow);
     });
 
+    // Поп-ап «Здати авто в оренду»: закриття кліком по фону
+    var rentout = document.getElementById('rentout-modal');
+    if (rentout) {
+      rentout.addEventListener('click', function (e) { if (e.target === rentout) closeRentOut(); });
+    }
+
     loadCars();
   }
+
+  // Глобальні функції для кнопки в hero (onclick)
+  window.openRentOut = function () {
+    var m = document.getElementById('rentout-modal');
+    if (m) m.classList.add('on');
+  };
+  window.closeRentOut = function () {
+    var m = document.getElementById('rentout-modal');
+    if (m) m.classList.remove('on');
+  };
 
   function loadCars() {
     listEl.innerHTML = '<p class="cars-msg">Завантаження авто…</p>';
@@ -71,8 +87,8 @@
   }
 
   /* ---- Чи проходить авто активні фільтри ----
-     У межах групи — АБО (напр. Toyota або Peugeot).
-     Між групами — І. «Особливості» — авто мусить мати ВСІ обрані. */
+     У межах групи АБО (напр. Toyota або Peugeot).
+     Між групами І. «Особливості» авто мусить мати ВСІ обрані. */
   function matches(car, f) {
     if (f.category.size && !f.category.has(car.category)) return false;
     if (f.brand.size && !f.brand.has(car.brand)) return false;
@@ -108,7 +124,7 @@
         return (a.brand + ' ' + a.model).localeCompare(b.brand + ' ' + b.model, 'uk');
       });
     }
-    // 'popular' — залишаємо порядок із cars.json
+    // 'popular' залишаємо порядок із cars.json
     return arr;
   }
 
