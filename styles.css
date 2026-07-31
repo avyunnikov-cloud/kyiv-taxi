@@ -240,7 +240,9 @@
     margin-bottom:30px;position:relative;z-index:2}
   .rent-banner .btn-start{position:relative;z-index:2}
   .rent-banner-alt{background:linear-gradient(135deg,#FFF3C9 0%,#FBFBFA 62%);border:1px solid #F1E4AE;
-    margin-bottom:28px;min-height:260px;padding:44px 56px}
+    margin-bottom:28px;min-height:220px;padding:30px 56px}
+  .rent-banner-alt h3{font-size:clamp(24px,2.6vw,34px);margin-bottom:10px}
+  .rent-banner-alt p{margin-bottom:18px}
   .rb-car{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:44%;
     max-width:540px;height:auto;pointer-events:none;z-index:1}
   @media(max-width:900px){
