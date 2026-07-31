@@ -9,6 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  .cars-count{margin-left:auto;color:var(--muted);font-size:14px;font-weight:600;white-space:nowrap}
+  .cars-msg{grid-column:1/-1;padding:40px 4px;color:var(--muted);font-size:16px}
+  .cars-msg-err{color:#b91c1c}
+  .cars-msg-err b{color:#b91c1c}
+  @media(max-width:560px){.cars-count{margin-left:0;flex-basis:100%}}
+</style>
 </head>
 <body>
 
@@ -28,7 +35,7 @@
       <a href="orenda.html">Оренда авто</a>
       <a href="blog.html">Блог</a>
       <a href="index.html#about">Про нас</a>
-      <a href="index.html#contacts">Контакти</a>
+      <a href="contacts.html">Контакти</a>
     </nav>
     <div class="nav-right">
       <span class="ua-slogan"><span class="ua-flag" aria-hidden="true"></span>Слава Україні</span>
@@ -54,9 +61,10 @@
   <div class="wrap">
     <div class="sortbar">
       <span class="sl">Сортування:</span>
-      <button class="sort-opt is-active" onclick="setSort(this)">За популярністю</button>
-      <button class="sort-opt" onclick="setSort(this)">Спочатку дешевші</button>
-      <button class="sort-opt" onclick="setSort(this)">За назвою</button>
+      <button class="sort-opt is-active" data-sort="popular">За популярністю</button>
+      <button class="sort-opt" data-sort="cheap">Спочатку дешевші</button>
+      <button class="sort-opt" data-sort="name">За назвою</button>
+      <span class="cars-count" id="cars-count"></span>
     </div>
 
     <div class="catalog-body">
@@ -65,155 +73,59 @@
         <div class="filter-group open">
           <button class="filter-head" onclick="toggleFilter(this)">Категорія <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">Стандарт</label>
-            <label class="fopt"><input type="checkbox">Комфорт</label>
-            <label class="fopt"><input type="checkbox">Бізнес</label>
-            <label class="fopt"><input type="checkbox">Black / Premium</label>
+            <label class="fopt"><input type="checkbox" data-filter="category" data-value="Стандарт">Стандарт</label>
+            <label class="fopt"><input type="checkbox" data-filter="category" data-value="Комфорт">Комфорт</label>
+            <label class="fopt"><input type="checkbox" data-filter="category" data-value="Бізнес">Бізнес</label>
+            <label class="fopt"><input type="checkbox" data-filter="category" data-value="Black/Premium">Black / Premium</label>
           </div></div>
         </div>
         <div class="filter-group">
           <button class="filter-head" onclick="toggleFilter(this)">Марка <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">Toyota</label>
-            <label class="fopt"><input type="checkbox">Peugeot</label>
-            <label class="fopt"><input type="checkbox">Škoda</label>
-            <label class="fopt"><input type="checkbox">Volkswagen</label>
+            <label class="fopt"><input type="checkbox" data-filter="brand" data-value="Toyota">Toyota</label>
+            <label class="fopt"><input type="checkbox" data-filter="brand" data-value="Peugeot">Peugeot</label>
+            <label class="fopt"><input type="checkbox" data-filter="brand" data-value="Škoda">Škoda</label>
+            <label class="fopt"><input type="checkbox" data-filter="brand" data-value="Volkswagen">Volkswagen</label>
           </div></div>
         </div>
         <div class="filter-group">
           <button class="filter-head" onclick="toggleFilter(this)">Ціна <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">до 3 000 грн/тиждень</label>
-            <label class="fopt"><input type="checkbox">3 000 – 5 000 грн/тиждень</label>
-            <label class="fopt"><input type="checkbox">від 5 000 грн/тиждень</label>
+            <label class="fopt"><input type="checkbox" data-filter="price" data-min="0" data-max="2999">до 3 000 грн/тиждень</label>
+            <label class="fopt"><input type="checkbox" data-filter="price" data-min="3000" data-max="5000">3 000 – 5 000 грн/тиждень</label>
+            <label class="fopt"><input type="checkbox" data-filter="price" data-min="5001" data-max="999999">від 5 000 грн/тиждень</label>
           </div></div>
         </div>
         <div class="filter-group">
           <button class="filter-head" onclick="toggleFilter(this)">Тип палива <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">Бензин</label>
-            <label class="fopt"><input type="checkbox">Дизель</label>
-            <label class="fopt"><input type="checkbox">Гібрид</label>
-            <label class="fopt"><input type="checkbox">Газ / Бензин</label>
-            <label class="fopt"><input type="checkbox">Електро</label>
+            <label class="fopt"><input type="checkbox" data-filter="fuel" data-value="Бензин">Бензин</label>
+            <label class="fopt"><input type="checkbox" data-filter="fuel" data-value="Дизель">Дизель</label>
+            <label class="fopt"><input type="checkbox" data-filter="fuel" data-value="Гібрид">Гібрид</label>
+            <label class="fopt"><input type="checkbox" data-filter="fuel" data-value="Газ">Газ</label>
+            <label class="fopt"><input type="checkbox" data-filter="fuel" data-value="Електро">Електро</label>
           </div></div>
         </div>
         <div class="filter-group">
           <button class="filter-head" onclick="toggleFilter(this)">Тип трансмісії <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">Автомат</label>
-            <label class="fopt"><input type="checkbox">Механіка</label>
+            <label class="fopt"><input type="checkbox" data-filter="gearbox" data-value="Автомат">Автомат</label>
+            <label class="fopt"><input type="checkbox" data-filter="gearbox" data-value="Механіка">Механіка</label>
           </div></div>
         </div>
         <div class="filter-group">
           <button class="filter-head" onclick="toggleFilter(this)">Особливості <span class="fc">▾</span></button>
           <div class="filter-body"><div class="fb-in">
-            <label class="fopt"><input type="checkbox">Кондиціонер</label>
-            <label class="fopt"><input type="checkbox">Дитяче крісло</label>
-            <label class="fopt"><input type="checkbox">Брендування таксі</label>
-            <label class="fopt"><input type="checkbox">Оренда з викупом</label>
+            <label class="fopt"><input type="checkbox" data-filter="feature" data-value="Кондиціонер">Кондиціонер</label>
+            <label class="fopt"><input type="checkbox" data-filter="feature" data-value="Дитяче крісло">Дитяче крісло</label>
+            <label class="fopt"><input type="checkbox" data-filter="feature" data-value="Брендування таксі">Брендування таксі</label>
+            <label class="fopt"><input type="checkbox" data-filter="feature" data-value="Оренда з викупом">Оренда з викупом</label>
           </div></div>
         </div>
       </aside>
 
-      <!-- CARS -->
-      <div class="cars">
-        <!-- CARD -->
-        <article class="car-card">
-          <div class="car-photo">
-            <span class="car-badge">✓</span>
-            <img src="car1.jpg" alt="Toyota Prius+" loading="lazy" onerror="this.style.display='none'">
-            <div class="car-arrows"><button aria-label="Попереднє фото">‹</button><button aria-label="Наступне фото">›</button></div>
-          </div>
-          <div class="car-brand">Toyota</div>
-          <div class="car-name"><h3>Prius+</h3><span class="yr">2015</span></div>
-          <div class="car-specs">
-            <div><div class="lbl">Тип палива:</div><div class="val">Гібрид / Газ / Бензин</div></div>
-            <div><div class="lbl">Коробка:</div><div class="val">Автомат</div></div>
-          </div>
-          <div class="car-price">
-            <div><div class="lbl">Тиждень:</div><b>3 500 грн</b></div>
-            <div><div class="lbl">Депозит:</div><b>5 000 грн</b></div>
-          </div>
-          <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Забронювати</button>
-          <button class="btn-req" onclick="toggleReq(this)">Умови</button>
-          <div class="car-req">
-            <h4>Вимоги до водія:</h4>
-            <ul>
-              <li>Вік від 25 років</li>
-              <li>Стаж водіння від 3 років</li>
-              <li>Досвід роботи в таксі</li>
-              <li>Знання однієї з мов (PL, RU, UA)</li>
-              <li>Оренда мінімум 1 місяць</li>
-            </ul>
-            <button class="btn-close-req" onclick="toggleReq(this)">Закрити</button>
-          </div>
-        </article>
-
-        <!-- CARD -->
-        <article class="car-card">
-          <div class="car-photo">
-            <span class="car-badge">✓</span>
-            <img src="car2.jpg" alt="Peugeot 308 SW" loading="lazy" onerror="this.style.display='none'">
-            <div class="car-arrows"><button aria-label="Попереднє фото">‹</button><button aria-label="Наступне фото">›</button></div>
-          </div>
-          <div class="car-brand">Peugeot</div>
-          <div class="car-name"><h3>308 SW</h3><span class="yr">2016</span></div>
-          <div class="car-specs">
-            <div><div class="lbl">Тип палива:</div><div class="val">Дизель</div></div>
-            <div><div class="lbl">Коробка:</div><div class="val">Автомат</div></div>
-          </div>
-          <div class="car-price">
-            <div><div class="lbl">Тиждень:</div><b>3 000 грн</b></div>
-            <div><div class="lbl">Депозит:</div><b>5 000 грн</b></div>
-          </div>
-          <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Забронювати</button>
-          <button class="btn-req" onclick="toggleReq(this)">Умови</button>
-          <div class="car-req">
-            <h4>Вимоги до водія:</h4>
-            <ul>
-              <li>Вік від 25 років</li>
-              <li>Стаж водіння від 3 років</li>
-              <li>Досвід роботи в таксі</li>
-              <li>Знання однієї з мов (PL, RU, UA)</li>
-              <li>Оренда мінімум 1 місяць</li>
-            </ul>
-            <button class="btn-close-req" onclick="toggleReq(this)">Закрити</button>
-          </div>
-        </article>
-
-        <!-- CARD -->
-        <article class="car-card">
-          <div class="car-photo">
-            <span class="car-badge">✓</span>
-            <img src="car3.jpg" alt="Škoda Octavia" loading="lazy" onerror="this.style.display='none'">
-            <div class="car-arrows"><button aria-label="Попереднє фото">‹</button><button aria-label="Наступне фото">›</button></div>
-          </div>
-          <div class="car-brand">Škoda</div>
-          <div class="car-name"><h3>Octavia</h3><span class="yr">2017</span></div>
-          <div class="car-specs">
-            <div><div class="lbl">Тип палива:</div><div class="val">Дизель</div></div>
-            <div><div class="lbl">Коробка:</div><div class="val">Автомат</div></div>
-          </div>
-          <div class="car-price">
-            <div><div class="lbl">Тиждень:</div><b>3 200 грн</b></div>
-            <div><div class="lbl">Депозит:</div><b>5 000 грн</b></div>
-          </div>
-          <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Забронювати</button>
-          <button class="btn-req" onclick="toggleReq(this)">Умови</button>
-          <div class="car-req">
-            <h4>Вимоги до водія:</h4>
-            <ul>
-              <li>Вік від 25 років</li>
-              <li>Стаж водіння від 3 років</li>
-              <li>Досвід роботи в таксі</li>
-              <li>Знання однієї з мов (PL, RU, UA)</li>
-              <li>Оренда мінімум 1 місяць</li>
-            </ul>
-            <button class="btn-close-req" onclick="toggleReq(this)">Закрити</button>
-          </div>
-        </article>
-      </div>
+      <!-- CARS (рендеряться з cars.json через orenda.js) -->
+      <div class="cars" id="cars-list"></div>
     </div>
   </div>
 </section>
@@ -228,10 +140,9 @@
         <div class="socials"><a href="#">✈</a><a href="#">📞</a><a href="#">▶</a><a href="#">📷</a></div>
       </div>
       <div><h5>Робота</h5><div class="foot-links"><a href="index.html#work">Водій таксі</a><a href="uber.html">Uber</a><a href="bolt.html">Bolt</a><a href="orenda.html">Оренда авто</a></div></div>
-      <div><h5>Компанія</h5><div class="foot-links"><a href="index.html#about">Про нас</a><a href="blog.html">Блог</a><a href="index.html#contacts">Контакти</a><a href="#">Політика конфіденційності</a></div></div>
-      <div><h5>Контакти</h5><div class="foot-links"><a href="tel:+380000000000">+380 (00) 000-00-00</a><a href="mailto:info@example.com">info@example.com</a><a href="#">Telegram</a><a href="#">Viber</a></div></div>
+      <div><h5>Компанія</h5><div class="foot-links"><a href="index.html#about">Про нас</a><a href="blog.html">Блог</a><a href="contacts.html">Контакти</a><a href="privacy.html">Політика конфіденційності</a></div></div>
+      <div><h5>Контакти</h5><div class="foot-links"><a href="tel:+380000000000">+380 (00) 000-00-00</a><a href="mailto:info@example.com">info@example.com</a><a href="#">Telegram</a></div></div>
     </div>
-    <div class="copyright">© 2026 RentalPark. Прототип для тестування інтерфейсу. Цифри позначені * — потребують заповнення.</div>
   </div>
 </footer>
 
@@ -268,5 +179,6 @@
 </div>
 
 <script src="app.js"></script>
+<script src="orenda.js"></script>
 </body>
 </html>
