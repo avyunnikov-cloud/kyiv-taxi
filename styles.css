@@ -239,6 +239,8 @@
   .rent-banner p{color:var(--muted);font-size:17px;line-height:1.6;max-width:52%;
     margin-bottom:30px;position:relative;z-index:2}
   .rent-banner .btn-start{position:relative;z-index:2}
+  .rent-banner-alt{background:linear-gradient(135deg,#FFF3C9 0%,#FBFBFA 62%);border:1px solid #F1E4AE;
+    margin-bottom:28px;min-height:260px;padding:44px 56px}
   .rb-car{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:44%;
     max-width:540px;height:auto;pointer-events:none;z-index:1}
   @media(max-width:900px){
