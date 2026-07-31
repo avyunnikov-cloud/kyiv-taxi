@@ -9,6 +9,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=9">
+<style>
+  /* Поп-ап вибору: робота водієм / оренда */
+  #choice-modal .rentout-box{position:relative;background:#fff;border-radius:22px;
+      padding:38px 34px 34px;max-width:440px;width:calc(100% - 40px);box-shadow:0 30px 70px rgba(15,23,42,.3)}
+  #choice-modal h2{font-size:26px;letter-spacing:-.01em;margin-bottom:10px}
+  #choice-modal p{color:var(--muted);font-size:16px;margin-bottom:24px}
+  .rentout-actions{display:flex;flex-direction:column;gap:14px}
+  .rentout-btn{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;
+      text-decoration:none;transition:.15s;border:1.5px solid transparent;cursor:pointer;text-align:left}
+  .rentout-btn svg{width:26px;height:26px;flex:0 0 26px}
+  .rentout-btn span{display:flex;flex-direction:column;line-height:1.25}
+  .rentout-btn b{font-size:17px}
+  .rentout-btn small{font-size:14px;opacity:.8}
+  .choice-driver{background:var(--accent);color:#111}
+  .choice-driver svg{fill:#111}
+  .choice-driver:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,196,0,.4)}
+  .choice-rent{background:#111;color:#fff}
+  .choice-rent svg{fill:#fff}
+  .choice-rent:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(17,17,17,.3)}
+</style>
 </head>
 <body>
 
@@ -44,7 +64,7 @@
     <div class="hero-text">
       <h1><span class="accent">Rental Park</span> ваш надійний партнер для роботи із Bolt та Uber</h1>
       <p class="lead">Допомагаємо заробляти в таксі з 2016 року. Перевірений партнер, власний автопарк та СТО.</p>
-      <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Почати роботу</a>
+      <a class="btn-start" href="#apply" onclick="openChoice();return false;"><span class="bs-ic">↘</span>Почати роботу</a>
     </div>
     <div class="hero-cards">
       <a class="hcard hc-blue" href="#apply" onclick="openModal('blue');return false;">
@@ -90,7 +110,7 @@
       <div class="ptext">
         <h2>Uklon</h2>
         <p>Приєднуйтесь до провідного українського сервісу таксі Uklon. Велика кількість замовлень по всій Україні, зручний застосунок та прозорі умови для водіїв. Гнучкий графік і швидкі виплати допомагають заробляти більше щодня.</p>
-        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+        <a class="btn-start" href="uklon.html"><span class="bs-ic">↘</span>Детальніше</a>
       </div>
       <div class="pcar">
         <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
@@ -110,7 +130,7 @@
       <div class="ptext">
         <h2>Bolt Taxi</h2>
         <p>Приєднуйтесь до одного з найпопулярніших сервісів таксі в Європі. Легкий старт, зручні умови для водіїв та стабільний потік замовлень із щотижневими виплатами.</p>
-        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+        <a class="btn-start" href="bolt.html"><span class="bs-ic">↘</span>Детальніше</a>
       </div>
       <div class="pcar">
         <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
@@ -130,7 +150,7 @@
       <div class="ptext">
         <h2>Uber Driver</h2>
         <p>Працюйте з однією з найбільших у світі платформ таксі. Отримайте доступ до великої кількості замовлень і стабільного доходу, гнучкий графік та зрозумілі умови співпраці.</p>
-        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+        <a class="btn-start" href="uber.html"><span class="bs-ic">↘</span>Детальніше</a>
       </div>
       <div class="pcar">
         <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
@@ -168,7 +188,7 @@
           <div><div class="lbl">Коробка:</div><div class="val">АКПП / МКПП</div></div>
           <div><div class="lbl">Витрата палива:</div><div class="val">6 л / 100 км</div></div>
         </div>
-        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+        <button class="btn-book" onclick="openChoice()"><span class="bs-ic">↘</span>Почати роботу</button>
       </article>
 
       <!-- CARD -->
@@ -184,7 +204,7 @@
           <div><div class="lbl">Коробка:</div><div class="val">АКПП / МКПП</div></div>
           <div><div class="lbl">Витрата палива:</div><div class="val">6 л / 100 км</div></div>
         </div>
-        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+        <button class="btn-book" onclick="openChoice()"><span class="bs-ic">↘</span>Почати роботу</button>
       </article>
 
       <!-- CARD -->
@@ -200,7 +220,7 @@
           <div><div class="lbl">Коробка:</div><div class="val">АКПП</div></div>
           <div><div class="lbl">Витрата палива:</div><div class="val">7,5 л / 100 км</div></div>
         </div>
-        <button class="btn-book" onclick="openModal()"><span class="bs-ic">↘</span>Почати роботу</button>
+        <button class="btn-book" onclick="openChoice()"><span class="bs-ic">↘</span>Почати роботу</button>
       </article>
 
     </div>
@@ -332,6 +352,25 @@
 
 <!-- STICKY CTA -->
 <button class="btn btn-primary sticky-cta mobile-bar" onclick="openModal()">💬 Залишити заявку</button>
+
+<!-- CHOICE POPUP -->
+<div class="modal" id="choice-modal">
+  <div class="rentout-box">
+    <button class="join-close" onclick="closeChoice()" aria-label="Закрити">×</button>
+    <h2>Оберіть, що вас цікавить</h2>
+    <p>Працюйте водієм на авто компанії або орендуйте автомобіль під власні потреби.</p>
+    <div class="rentout-actions">
+      <button type="button" class="rentout-btn choice-driver" onclick="closeChoice();openModal();">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 6v1h18v-1c0-3.5-4-6-9-6Z"/></svg>
+        <span><b>Робота водієм на авто компанії</b><small>Підключення до Uklon, Bolt, Uber</small></span>
+      </button>
+      <a class="rentout-btn choice-rent" href="orenda.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 6.5 20.4 11H3.6l1.5-4.5C5.3 6 5.7 5.7 6.2 5.7h11.6c.5 0 .9.3 1.1.8ZM5 12.7h14v4.6h-3v-1.8H8v1.8H5v-4.6Zm2.2 1.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Zm9.6 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4Z"/></svg>
+        <span><b>Оренда авто</b><small>Оберіть автомобіль з нашого автопарку</small></span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- MODAL -->
 <div class="modal" id="modal">

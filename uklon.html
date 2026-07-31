@@ -10,6 +10,39 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  /* Uklon-сторінка: блоки умов підключення */
+  .uk-head{margin-bottom:38px}
+  .info-2{grid-template-columns:repeat(2,1fr);gap:26px}
+  .uk-list{list-style:none;display:grid;gap:13px;margin-top:4px}
+  .uk-list li{position:relative;padding-left:30px;color:var(--muted);font-size:15px;line-height:1.5}
+  .uk-list li::before{content:"✓";position:absolute;left:0;top:-1px;width:20px;height:20px;
+      display:grid;place-items:center;color:var(--success);font-weight:900;font-size:14px}
+  .uk-list li b{color:var(--ink);font-weight:700}
+  .doc-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+  .doc-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+  .doc-item .dn{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:rgba(26,115,232,.1);
+      color:var(--primary-600);font-weight:800;display:grid;place-items:center;font-size:15px}
+  .doc-item b{display:block;font-size:15px;margin-bottom:3px}
+  .doc-item span{color:var(--muted);font-size:13px;line-height:1.45}
+  .fin-grid{grid-template-columns:repeat(4,1fr);gap:20px}
+  .fin-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px}
+  .fin-card .big{font-size:34px;font-weight:900;color:var(--primary);letter-spacing:-.02em;margin-bottom:6px}
+  .fin-card h4{font-size:16px;margin-bottom:8px}
+  .fin-card p{color:var(--muted);font-size:14px;line-height:1.5}
+  .steps-5{grid-template-columns:repeat(5,1fr)}
+  .tips-grid{grid-template-columns:repeat(3,1fr);gap:24px}
+  .tip-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px 26px}
+  .tip-card .ic{font-size:28px;margin-bottom:12px}
+  .tip-card h4{font-size:18px;margin-bottom:8px}
+  .tip-card p{color:var(--muted);font-size:15px;line-height:1.55}
+  .uk-note{background:rgba(26,115,232,.06);border-left:4px solid var(--primary);border-radius:10px;
+      padding:16px 20px;color:var(--muted);font-size:15px;margin-top:26px}
+  .uk-note b{color:var(--ink)}
+  @media(max-width:1000px){.steps-5{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:900px){.info-2,.doc-grid,.fin-grid,.tips-grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.steps-5{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -89,6 +122,154 @@
       <div class="job-card">
         <h3>Український сервіс</h3>
         <p>Uklon працює по всій Україні та добре знає місцевий ринок. Зручний застосунок і підтримка рідною мовою роблять роботу простою та зрозумілою.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO CONNECT INTRO -->
+<section class="section-soft" id="how">
+  <div class="wrap">
+    <div class="center uk-head">
+      <span class="tag">Підключення від кількох годин до 1 дня</span>
+      <h2 style="margin-top:14px">Як підключитися до Uklon у Києві на власному авто</h2>
+      <p class="lead center">Це доволі простий і швидкий процес. Нижче зібрані вимоги, фінансові нюанси та покрокова інструкція, щоб ви вийшли на лінію без зайвих клопотів.</p>
+    </div>
+
+    <!-- 1 + 2: REQUIREMENTS -->
+    <div class="grid info-2">
+      <div class="job-card">
+        <h3>Вимоги до водія</h3>
+        <ul class="uk-list">
+          <li><b>Вік і стаж.</b> Для систематичних пасажирських перевезень потрібен вік від 21 року (у деяких автопарках від 24) та стаж категорії B від 3 років.</li>
+          <li><b>Посвідчення водія.</b> Дійсні права категорії B українського зразка.</li>
+          <li><b>Відсутність судимості.</b> Довідка (витяг) про відсутність судимості легко формується через застосунок «Дія».</li>
+          <li><b>Смартфон.</b> Android або iOS із постійним доступом до мобільного інтернету та GPS.</li>
+        </ul>
+      </div>
+      <div class="job-card">
+        <h3>Вимоги до авто (Київ)</h3>
+        <ul class="uk-list">
+          <li><b>Рік випуску.</b> У Києві до роботи допускаються авто від 2005 року випуску.</li>
+          <li><b>Тип кузова.</b> Седан, хетчбек, універсал, кросовер, мінівен. Кузов купе не допускається.</li>
+          <li><b>Реєстрація.</b> Лише українська державна реєстрація (номери UA).</li>
+          <li><b>Технічний стан.</b> Без суттєвих пошкоджень, вм'ятин та іржі. Чистий салон без сторонніх запахів, справні ремені безпеки, робочі пічка й кондиціонер, гума за сезоном.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3: DOCUMENTS -->
+<section id="documents">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:36px">
+      <h2>Пакет документів</h2>
+      <p class="lead center">Під час реєстрації через застосунок знадобляться якісні фото або цифрові копії:</p>
+    </div>
+    <div class="grid doc-grid">
+      <div class="doc-item"><span class="dn">1</span><span><b>Паспорт громадянина України</b>Або ID-картка чи посвідка на проживання.</span></div>
+      <div class="doc-item"><span class="dn">2</span><span><b>Посвідчення водія</b>З двох боків, категорія B.</span></div>
+      <div class="doc-item"><span class="dn">3</span><span><b>Свідоцтво про реєстрацію ТЗ</b>Техпаспорт з двох боків.</span></div>
+      <div class="doc-item"><span class="dn">4</span><span><b>Поліс ОСЦПВ (автоцивілка)</b>Чинний на момент реєстрації.</span></div>
+      <div class="doc-item"><span class="dn">5</span><span><b>Особисте фото</b>Для профілю водія в застосунку.</span></div>
+      <div class="doc-item"><span class="dn">6</span><span><b>Фото автомобіля</b>З різних ракурсів та фото салону.</span></div>
+    </div>
+    <div class="uk-note"><b>Порада:</b> подати документи можна як звичайними фото фізичних оригіналів, так і в цифровому форматі через інтеграцію із застосунком «Дія».</div>
+  </div>
+</section>
+
+<!-- 4: FINANCE -->
+<section class="section-soft" id="finance">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:36px">
+      <h2>Фінансові умови та комісія</h2>
+      <p class="lead center">Прозорі правила без прихованих платежів, щоб ви одразу розуміли свій дохід.</p>
+    </div>
+    <div class="grid fin-grid">
+      <div class="fin-card">
+        <div class="big">≈23%</div>
+        <h4>Комісія сервісу</h4>
+        <p>Базова комісія Uklon у Києві складає близько 23% від вартості замовлення.</p>
+      </div>
+      <div class="fin-card">
+        <div class="big">ПДФО</div>
+        <h4>Оподаткування</h4>
+        <p>Сервіс утримує передбачені законодавством України збори та податки: ПДФО та військовий збір.</p>
+      </div>
+      <div class="fin-card">
+        <div class="big">24/7</div>
+        <h4>Виведення коштів</h4>
+        <p>Безготівкові чайові та оплата картками зараховуються на баланс і виводяться на будь-яку картку України.</p>
+      </div>
+      <div class="fin-card">
+        <div class="big">−%</div>
+        <h4>Брендування</h4>
+        <p>Обклеювання авто символікою Uklon не обов'язкове, але дає знижену комісію та пріоритет у замовленнях.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5: STEPS -->
+<section id="steps">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <h2>Кроки підключення</h2>
+      <p class="lead center">П'ять простих кроків від завантаження застосунку до першої поїздки.</p>
+    </div>
+    <div class="grid steps steps-5">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Завантажте застосунок</h4>
+        <p>Встановіть Uklon Driver із Play Market (Android) або App Store (iOS).</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Реєстрація</h4>
+        <p>Введіть номер телефону, оберіть місто Київ і вкажіть роботу на власному авто.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Завантажте документи</h4>
+        <p>Додайте фото прав, техпаспорта, страховки та чіткі знімки авто зовні й усередині.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h4>Модерація</h4>
+        <p>Менеджери Uklon перевіряють заявку зазвичай від 1 до 24 годин. Статус надійде в SMS.</p>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <h4>Виходьте на лінію</h4>
+        <p>Оберіть радіус і сектор замовлень та приймайте перші поїздки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6: TIPS -->
+<section class="section-soft" id="tips">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:40px">
+      <h2>Корисні поради для роботи в Києві</h2>
+      <p class="lead center">Кілька речей, які допоможуть заробляти більше з перших днів.</p>
+    </div>
+    <div class="grid tips-grid">
+      <div class="tip-card">
+        <div class="ic">🚗</div>
+        <h4>Класи замовлень</h4>
+        <p>Залежно від марки, моделі та року випуску авто система відносить його до класів Standard, Comfort, Business, Compact або Inclusive. Що вищий клас — то дорожчі поїздки.</p>
+      </div>
+      <div class="tip-card">
+        <div class="ic">⏰</div>
+        <h4>Години пік</h4>
+        <p>Найбільший потік замовлень і підвищені коефіцієнти припадають на ранок (07:30–10:00) і вечір (17:00–20:00) у будні, а також на вихідні.</p>
+      </div>
+      <div class="tip-card">
+        <div class="ic">⭐</div>
+        <h4>Рейтинг водія</h4>
+        <p>Високий рейтинг (культура спілкування, чистий салон, спокійна їзда) відкриває доступ до ланцюжків замовлень і зменшує час простою.</p>
       </div>
     </div>
   </div>

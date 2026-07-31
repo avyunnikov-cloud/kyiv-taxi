@@ -7,6 +7,10 @@
   }
   function closeModal(){document.getElementById('modal').classList.remove('on')}
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+  function openChoice(){var m=document.getElementById('choice-modal');if(m)m.classList.add('on')}
+  function closeChoice(){var m=document.getElementById('choice-modal');if(m)m.classList.remove('on')}
+  var _choice=document.getElementById('choice-modal');
+  if(_choice)_choice.addEventListener('click',function(e){if(e.target===this)closeChoice()});
   function tq(btn){btn.parentElement.classList.toggle('open')}
   function toggleDrop(btn){btn.closest('.has-dropdown').classList.toggle('open')}
   var _platform='uklon';
