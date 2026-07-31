@@ -21,6 +21,7 @@
         <button type="button" class="drop-toggle" onclick="toggleDrop(this)">Робота <span class="chev">▾</span></button>
         <div class="dropdown">
           <div class="dd-head">Водій</div>
+          <a class="dd-uklon" href="uklon.html"><span class="dd-dot"></span>Uklon</a>
           <a class="dd-uber" href="uber.html"><span class="dd-dot"></span>Uber</a>
           <a class="dd-bolt" href="bolt.html"><span class="dd-dot"></span>Bolt</a>
         </div>
@@ -73,21 +74,22 @@
 <section id="platform-choice">
   <div class="wrap">
     <div class="ptabs">
-      <button class="ptab is-active" data-tab="uber" onclick="showPlatform('uber')">Uber</button>
+      <button class="ptab is-active" data-tab="uklon" onclick="showPlatform('uklon')">Uklon</button>
       <button class="ptab" data-tab="bolt" onclick="showPlatform('bolt')">Bolt</button>
+      <button class="ptab" data-tab="uber" onclick="showPlatform('uber')">Uber</button>
     </div>
     <div class="ptab-mobile">
       <button class="pnav" onclick="platformNav(-1)" aria-label="Попередня платформа">‹</button>
-      <span class="pcur">Uber</span>
+      <span class="pcur">Uklon</span>
       <button class="pnav" onclick="platformNav(1)" aria-label="Наступна платформа">›</button>
     </div>
 
-    <!-- UBER -->
-    <div class="pslide pslide-uber is-active" data-panel="uber">
-      <span class="plogo">Uber</span>
+    <!-- UKLON -->
+    <div class="pslide pslide-uklon is-active" data-panel="uklon">
+      <span class="plogo">Uklon</span>
       <div class="ptext">
-        <h2>Uber Driver</h2>
-        <p>Працюйте з однією з найбільших у світі платформ таксі. Отримайте доступ до великої кількості замовлень і стабільного доходу, гнучкий графік та зрозумілі умови співпраці.</p>
+        <h2>Uklon</h2>
+        <p>Приєднуйтесь до провідного українського сервісу таксі Uklon. Велика кількість замовлень по всій Україні, зручний застосунок та прозорі умови для водіїв. Гнучкий графік і швидкі виплати допомагають заробляти більше щодня.</p>
         <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
       </div>
       <div class="pcar">
@@ -98,7 +100,7 @@
           <circle class="t" cx="158" cy="196" r="40"/><circle class="h" cx="158" cy="196" r="15"/>
           <circle class="t" cx="470" cy="196" r="40"/><circle class="h" cx="470" cy="196" r="15"/>
         </svg>
-        <img class="pcar-img" src="uber-car.jpg" alt="Авто для роботи в Uber" loading="lazy" onerror="this.style.display='none'">
+        <img class="pcar-img" src="uklon-car.jpg" alt="Авто для роботи в Uklon" loading="lazy" onerror="this.style.display='none'">
       </div>
     </div>
 
@@ -119,6 +121,26 @@
           <circle class="t" cx="470" cy="196" r="40"/><circle class="h" cx="470" cy="196" r="15"/>
         </svg>
         <img class="pcar-img" src="bolt-car.jpg" alt="Авто для роботи в Bolt" loading="lazy" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- UBER -->
+    <div class="pslide pslide-uber" data-panel="uber">
+      <span class="plogo">Uber</span>
+      <div class="ptext">
+        <h2>Uber Driver</h2>
+        <p>Працюйте з однією з найбільших у світі платформ таксі. Отримайте доступ до великої кількості замовлень і стабільного доходу, гнучкий графік та зрозумілі умови співпраці.</p>
+        <a class="btn-start" href="#apply" onclick="openModal();return false;"><span class="bs-ic">↘</span>Детальніше</a>
+      </div>
+      <div class="pcar">
+        <svg class="pcar-ph" viewBox="0 0 600 240" aria-hidden="true">
+          <path class="b" d="M30,196 L30,172 C30,164 35,159 52,156 L120,150 C150,116 176,100 216,100 L330,100 C366,102 384,120 404,150 L520,154 C544,156 556,164 556,180 L556,196 Z"/>
+          <path class="w" d="M150,146 C170,120 190,110 216,110 L262,110 L262,146 Z"/>
+          <path class="w" d="M276,110 L322,110 C352,112 370,126 388,146 L276,146 Z"/>
+          <circle class="t" cx="158" cy="196" r="40"/><circle class="h" cx="158" cy="196" r="15"/>
+          <circle class="t" cx="470" cy="196" r="40"/><circle class="h" cx="470" cy="196" r="15"/>
+        </svg>
+        <img class="pcar-img" src="uber-car.jpg" alt="Авто для роботи в Uber" loading="lazy" onerror="this.style.display='none'">
       </div>
     </div>
   </div>
@@ -251,7 +273,7 @@
     </div>
     <div class="why-right">
       <p><strong>Rental Park</strong> надійний партнер для водіїв, які хочуть стабільно заробляти в таксі. <strong>З 2016 року</strong> ми допомагаємо підключатися до провідних агрегаторів <strong>Uber та Bolt</strong>, оформлюємо всі необхідні документи й швидко виводимо на лінію. Накопичений досвід дозволяє новачкам стартувати вже за 1 день, а досвідченим водіям заробляти більше.</p>
-      <p>У нашому розпорядженні <strong>власний автопарк понад 50 автомобілів</strong> усіх категорій: <strong>Standart, Business та Black/Premium</strong>. Ви можете орендувати авто під таксі або підключити власне. Прозорі умови співпраці, щоденні виплати, власне СТО та підтримка на кожному етапі роблять роботу з Rental Park простою, вигідною та безпечною.</p>
+      <p>У нашому розпорядженні <strong>власний автопарк понад 50 автомобілів</strong> усіх категорій: <strong>Standart, Comfort, Business та Black/Premium</strong>. Ви можете орендувати авто під таксі або підключити власне. Прозорі умови співпраці, щоденні виплати, власне СТО та підтримка на кожному етапі роблять роботу з Rental Park простою, вигідною та безпечною.</p>
     </div>
   </div>
 </section>

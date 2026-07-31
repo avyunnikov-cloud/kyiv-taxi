@@ -9,14 +9,15 @@
   document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
   function tq(btn){btn.parentElement.classList.toggle('open')}
   function toggleDrop(btn){btn.closest('.has-dropdown').classList.toggle('open')}
-  var _platform='uber';
+  var _platform='uklon';
   function showPlatform(name){
     _platform=name;
     document.querySelectorAll('.ptab').forEach(function(t){t.classList.toggle('is-active',t.dataset.tab===name)});
     document.querySelectorAll('.pslide').forEach(function(p){p.classList.toggle('is-active',p.dataset.panel===name)});
-    var cur=document.querySelector('.pcur');if(cur)cur.textContent=(name==='uber'?'Uber':'Bolt');
+    var names={uklon:'Uklon',bolt:'Bolt',uber:'Uber'};
+    var cur=document.querySelector('.pcur');if(cur)cur.textContent=(names[name]||name);
   }
-  function platformNav(dir){var o=['uber','bolt'];showPlatform(o[(o.indexOf(_platform)+dir+2)%2])}
+  function platformNav(dir){var o=['uklon','bolt','uber'];showPlatform(o[(o.indexOf(_platform)+dir+o.length)%o.length])}
   document.addEventListener('click',function(e){
     if(!e.target.closest('.has-dropdown')){
       document.querySelectorAll('.has-dropdown.open').forEach(function(d){d.classList.remove('open')});

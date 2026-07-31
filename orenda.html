@@ -16,6 +16,10 @@
   .cars-msg-err b{color:#b91c1c}
   @media(max-width:560px){.cars-count{margin-left:0;flex-basis:100%}}
 
+  /* Блок «Оренда для власних потреб» — відрізняємо теплим акцентом */
+  .rent-banner-alt{background:linear-gradient(135deg,#FFF3C9 0%,#FBFBFA 62%);
+      border:1px solid #F1E4AE}
+
   /* Кнопки hero: вибрати + здати авто */
   .oh-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .btn-rentout{display:inline-flex;align-items:center;gap:14px;background:#fff;color:var(--ink);
@@ -57,6 +61,7 @@
         <button type="button" class="drop-toggle" onclick="toggleDrop(this)">Робота <span class="chev">▾</span></button>
         <div class="dropdown">
           <div class="dd-head">Водій</div>
+          <a class="dd-uklon" href="uklon.html"><span class="dd-dot"></span>Uklon</a>
           <a class="dd-uber" href="uber.html"><span class="dd-dot"></span>Uber</a>
           <a class="dd-bolt" href="bolt.html"><span class="dd-dot"></span>Bolt</a>
         </div>
@@ -77,7 +82,7 @@
 <section class="oh-hero">
   <div class="wrap oh-grid">
     <div class="oh-left">
-      <h1>Оренда авто <span class="accent">під таксі</span></h1>
+      <h1>Оренда авто <span class="accent">під таксі</span> та власні потреби</h1>
       <p>Оренда авто для роботи в Uklon, Uber, Bolt. Власний автопарк, авто всіх категорій та вигідні умови.</p>
       <div class="oh-actions">
         <a class="btn-start" href="#catalog"><span class="bs-ic">↘</span>Вибрати авто під таксі</a>
@@ -85,6 +90,18 @@
       </div>
     </div>
     <img class="oh-car" src="car-rental.png" alt="Оренда авто під таксі Peugeot 308 SW" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- PERSONAL-USE RENT -->
+<section id="personal-rent" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="rent-banner rent-banner-alt">
+      <h3>Оренда авто для власних потреб</h3>
+      <p>Потрібне авто не для роботи в таксі, а для себе? Орендуйте автомобіль для поїздок містом, подорожей, відряджень чи на час ремонту власного. Прозорі умови, зрозумілий договір і авто в гарному технічному стані. Оберіть відповідну модель і вирушайте вже сьогодні.</p>
+      <a class="btn-start" href="#catalog"><span class="bs-ic">↘</span>Обрати авто</a>
+      <img class="rb-car" src="car-rental.png" alt="Оренда авто для власних потреб" loading="lazy" onerror="this.style.display='none'">
+    </div>
   </div>
 </section>
 
