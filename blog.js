@@ -41,13 +41,34 @@
       });
   }
 
+  /* ---- SVG-іконки для мета-рядка ---- */
+  var IC_CAL = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 9h14v10H5V9z"/></svg>';
+  var IC_EYE = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 5c-5 0-9 4-10 7 1 3 5 7 10 7s9-4 10-7c-1-3-5-7-10-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>';
+  var IC_CLK = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6V6h-2v7l5 3 1-1.7-4-2.7z"/></svg>';
+
   /* ---- Розмітка однієї картки (повторює верстку .post-card) ---- */
   function cardHtml(post) {
     var title = esc(post.title || '');
     var img = esc(post.image || 'car-rental.png');
     var hasLink = post.link && post.link !== '#';
     var href = hasLink ? esc(post.link) : '#';
-    var attrs = hasLink ? ' target="_blank" rel="noopener"' : ' onclick="return false;"';
+    // Зовнішні посилання (http…) відкриваємо в новій вкладці,
+    // внутрішні сторінки статей у поточній.
+    var external = /^https?:\/\//i.test(post.link || '');
+    var attrs = hasLink
+      ? (external ? ' target="_blank" rel="noopener"' : '')
+      : ' onclick="return false;"';
+
+    var meta = '' +
+      '<span class="pm-item">' + IC_CAL + esc(formatDate(post.date)) + '</span>';
+    if (post.views != null && post.views !== '') {
+      meta += '<span class="pm-dot">•</span>' +
+        '<span class="pm-item">' + IC_EYE + esc(String(post.views)) + '</span>';
+    }
+    if (post.read != null && post.read !== '') {
+      meta += '<span class="pm-dot">•</span>' +
+        '<span class="pm-item">' + IC_CLK + esc(String(post.read)) + ' хв</span>';
+    }
 
     return '' +
       '<article class="post-card">' +
@@ -56,12 +77,10 @@
         '</a>' +
         '<div class="post-body">' +
           '<span class="post-cat">' + esc(post.category || '') + '</span>' +
-          '<h3>' + title + '</h3>' +
+          '<h3><a href="' + href + '"' + attrs + '>' + title + '</a></h3>' +
+          '<div class="post-meta">' + meta + '</div>' +
           '<p>' + esc(post.excerpt || '') + '</p>' +
-          '<div class="post-foot">' +
-            '<span>' + esc(formatDate(post.date)) + '</span>' +
-            '<a class="read" href="' + href + '"' + attrs + '>Читати →</a>' +
-          '</div>' +
+          '<a class="post-read" href="' + href + '"' + attrs + '>Читати</a>' +
         '</div>' +
       '</article>';
   }

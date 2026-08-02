@@ -6,7 +6,9 @@
     "title": "Як заробляти в таксі",
     "excerpt": "Розбираємо, скільки реально заробляє водій таксі в Києві, як обрати платформу та графік і з чого почати новачку.",
     "image": "peugeot-308.png",
-    "link": ""
+    "views": 353,
+    "read": 5,
+    "link": "yak-zaroblyaty-v-taksi.html"
   },
   {
     "id": "orenda-avto-z-choho-pochaty",
@@ -15,7 +17,9 @@
     "title": "Оренда авто під таксі в Києві: з чого почати",
     "excerpt": "Умови оренди авто Київ під таксі, депозит, страхування та як обрати автомобіль під свій формат роботи.",
     "image": "renault-megane.png",
-    "link": ""
+    "views": 281,
+    "read": 7,
+    "link": "orenda-avto-z-choho-pochaty.html"
   },
   {
     "id": "uber-chy-bolt",
@@ -24,7 +28,9 @@
     "title": "Uber чи Bolt: що обрати водієві в Києві",
     "excerpt": "Порівнюємо комісії, кількість замовлень і виплати двох платформ, щоб ви заробляли більше за кермом.",
     "image": "mercedes-e.png",
-    "link": ""
+    "views": 402,
+    "read": 6,
+    "link": "uber-chy-bolt.html"
   },
   {
     "id": "dokumenty-fop-licenziya",
@@ -33,7 +39,9 @@
     "title": "Документи для роботи в таксі: ФОП та ліцензія",
     "excerpt": "Який пакет документів потрібен водієві таксі в Києві та як RentalPark допомагає оформити все за кілька днів.",
     "image": "car-rental.png",
-    "link": ""
+    "views": 198,
+    "read": 4,
+    "link": "dokumenty-fop-licenziya.html"
   },
   {
     "id": "5-porad-zbilshyty-dohid",
@@ -42,7 +50,9 @@
     "title": "5 порад, як збільшити дохід за кермом",
     "excerpt": "Прості робочі поради: коли виходити на лінію, як тримати рейтинг і економити на пальному.",
     "image": "renault-megane.png",
-    "link": ""
+    "views": 267,
+    "read": 5,
+    "link": "5-porad-zbilshyty-dohid.html"
   },
   {
     "id": "onovlennya-avtoparku",
@@ -51,6 +61,8 @@
     "title": "Оновлення автопарку RentalPark",
     "excerpt": "Поповнили автопарк новими авто з АКПП більше вибору для оренди під таксі в Києві.",
     "image": "mercedes-e.png",
-    "link": ""
+    "views": 154,
+    "read": 3,
+    "link": "onovlennya-avtoparku.html"
   }
 ]
